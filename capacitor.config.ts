@@ -9,10 +9,10 @@ const config: CapacitorConfig = {
   },
   android: {
     buildOptions: {
-      keystorePath: undefined,
-      keystorePassword: undefined,
-      keystoreAlias: undefined,
-      keystoreAliasPassword: undefined,
+      keystorePath: "app/signing.keystore",
+      keystorePassword: "aPbD8TqaKeHd",
+      keystoreAlias: "my-key-alias",
+      keystoreAliasPassword: "aPbD8TqaKeHd",
       releaseType: "APK"
     }
   }
