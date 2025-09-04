@@ -11,7 +11,7 @@
 ### 1. بناء تطبيق الويب
 ```bash
 npm install
-vite build
+npm run build
 ```
 
 ### 2. مزامنة Capacitor
