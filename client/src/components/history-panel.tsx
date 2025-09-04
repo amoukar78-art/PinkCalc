@@ -35,7 +35,7 @@ export function HistoryPanel({
       {/* History Panel */}
       <div 
         className={cn(
-          "history-panel fixed right-0 top-0 h-full w-80 transform transition-transform duration-300 z-50",
+          "history-panel fixed right-0 top-0 h-full w-full sm:w-80 md:w-96 transform transition-transform duration-300 z-50",
           isOpen ? "translate-x-0" : "translate-x-full",
           className
         )}
@@ -43,9 +43,9 @@ export function HistoryPanel({
       >
         
         {/* History Header */}
-        <div className="bg-gradient-to-r from-primary to-secondary p-6 text-primary-foreground">
+        <div className="bg-gradient-to-r from-primary to-secondary p-4 sm:p-6 text-primary-foreground">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-bold">Calculation History</h3>
+            <h3 className="text-lg sm:text-xl font-bold">Calculation History</h3>
             <button 
               className="text-primary-foreground hover:text-primary-foreground/80 text-xl transition-colors"
               onClick={onClose}
@@ -54,7 +54,7 @@ export function HistoryPanel({
               <X className="w-6 h-6" />
             </button>
           </div>
-          <p className="text-primary-foreground/80 text-sm mt-2">All your calculations</p>
+          <p className="text-primary-foreground/80 text-xs sm:text-sm mt-2">All your calculations</p>
         </div>
 
         {/* History Content */}
