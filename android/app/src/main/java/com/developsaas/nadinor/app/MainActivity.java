@@ -1,4 +1,4 @@
-package com.calculator.app;
+package com.developsaas.nadinor.app;
 
 import android.os.Bundle;
 import com.getcapacitor.BridgeActivity;
