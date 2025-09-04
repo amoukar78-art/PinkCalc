@@ -1,14 +1,12 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
+// Configuration for completely offline/local app
 const config: CapacitorConfig = {
   appId: 'com.developsaas.nadinor.app',
   appName: 'Calculator Cute',
   webDir: 'dist/public',
   server: {
-    // For development with localhost
-    url: 'http://localhost:5000',
-    cleartext: true,
-    // For production build
+    // No external server - works completely offline
     androidScheme: 'https'
   },
   plugins: {
@@ -25,7 +23,6 @@ const config: CapacitorConfig = {
       keystoreAliasPassword: "aPbD8TqaKeHd",
       releaseType: "APK"
     },
-    // Allow localhost access
     allowMixedContent: true
   }
 };
