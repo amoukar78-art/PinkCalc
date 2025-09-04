@@ -49,16 +49,11 @@ jobs:
         cd android
         ./gradlew bundleRelease
 
-    - name: Sign APK
-      run: |
-        jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore android/app/release-key.keystore -storepass password android/app/build/outputs/apk/release/app-release-unsigned.apk release-key
-        zipalign -v 4 android/app/build/outputs/apk/release/app-release-unsigned.apk android/app/build/outputs/apk/release/calculator-app.apk
-
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: calculator-app-apk
-        path: android/app/build/outputs/apk/release/calculator-app.apk
+        path: android/app/build/outputs/apk/release/app-release.apk
 
     - name: Upload AAB
       uses: actions/upload-artifact@v4
