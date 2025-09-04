@@ -1,5 +1,6 @@
 import { History } from 'lucide-react';
 import { useCalculator } from '@/hooks/use-calculator';
+import { useCalculatorSounds } from '@/hooks/use-calculator-sounds';
 import { CalculatorDisplay } from '@/components/calculator-display';
 import { CalculatorButtons } from '@/components/calculator-buttons';
 import { HistoryPanel } from '@/components/history-panel';
@@ -20,6 +21,8 @@ export default function Calculator() {
     clearHistory,
     useHistoryItem,
   } = useCalculator();
+  
+  const { playButtonSound } = useCalculatorSounds();
 
   return (
     <div className="h-screen flex flex-col justify-center px-2 sm:px-4 lg:px-6 relative">
@@ -48,6 +51,7 @@ export default function Calculator() {
             onClear={clear}
             onDelete={deleteLast}
             onHistoryToggle={() => setIsHistoryOpen(true)}
+            playButtonSound={playButtonSound}
           />
 
 

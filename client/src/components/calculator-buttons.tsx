@@ -9,6 +9,7 @@ interface CalculatorButtonsProps {
   onClear: () => void;
   onDelete: () => void;
   onHistoryToggle: () => void;
+  playButtonSound: (soundType: 'number' | 'operator' | 'equals' | 'clear' | 'delete') => void;
   className?: string;
 }
 
@@ -20,6 +21,7 @@ export function CalculatorButtons({
   onClear,
   onDelete,
   onHistoryToggle,
+  playButtonSound,
   className
 }: CalculatorButtonsProps) {
   const numberButtons = [
@@ -41,6 +43,42 @@ export function CalculatorButtons({
     { symbol: '+', value: '+' },
   ];
 
+  // Wrapper functions that combine sound with action
+  const handleNumberClick = (num: string) => {
+    playButtonSound('number');
+    onNumberClick(num);
+  };
+
+  const handleOperatorClick = (op: string) => {
+    playButtonSound('operator');
+    onOperatorClick(op);
+  };
+
+  const handleDecimalClick = () => {
+    playButtonSound('number');
+    onDecimalClick();
+  };
+
+  const handleCalculate = () => {
+    playButtonSound('equals');
+    onCalculate();
+  };
+
+  const handleClear = () => {
+    playButtonSound('clear');
+    onClear();
+  };
+
+  const handleDelete = () => {
+    playButtonSound('delete');
+    onDelete();
+  };
+
+  const handleHistoryToggle = () => {
+    playButtonSound('operator'); // Use operator sound for history
+    onHistoryToggle();
+  };
+
   return (
     <div className={cn("space-y-2", className)}>
       {/* Button Grid */}
@@ -49,7 +87,7 @@ export function CalculatorButtons({
         {/* First Row: Clear, Delete, Percent, Divide */}
         <button 
           className="calculator-button clear-button rounded-full font-semibold text-base sm:text-lg lg:text-xl text-white"
-          onClick={onClear}
+          onClick={handleClear}
           data-testid="button-clear"
         >
           Clear
@@ -57,7 +95,7 @@ export function CalculatorButtons({
         
         <button 
           className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
-          onClick={onDelete}
+          onClick={handleDelete}
           data-testid="button-delete"
         >
           <Trash2 className="w-5 h-5 mx-auto" />
@@ -65,7 +103,7 @@ export function CalculatorButtons({
         
         <button 
           className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
-          onClick={() => onOperatorClick('%')}
+          onClick={() => handleOperatorClick('%')}
           data-testid="button-percent"
         >
           %
@@ -73,7 +111,7 @@ export function CalculatorButtons({
         
         <button 
           className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
-          onClick={() => onOperatorClick('/')}
+          onClick={() => handleOperatorClick('/')}
           data-testid="button-divide"
         >
           ÷
@@ -82,28 +120,28 @@ export function CalculatorButtons({
         {/* Row 2: 7, 8, 9, × */}
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('7')}
+          onClick={() => handleNumberClick('7')}
           data-testid="button-number-7"
         >
           7
         </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('8')}
+          onClick={() => handleNumberClick('8')}
           data-testid="button-number-8"
         >
           8
         </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('9')}
+          onClick={() => handleNumberClick('9')}
           data-testid="button-number-9"
         >
           9
         </button>
         <button 
           className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
-          onClick={() => onOperatorClick('*')}
+          onClick={() => handleOperatorClick('*')}
           data-testid="button-multiply"
         >
           ×
@@ -112,28 +150,28 @@ export function CalculatorButtons({
         {/* Row 3: 4, 5, 6, - */}
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('4')}
+          onClick={() => handleNumberClick('4')}
           data-testid="button-number-4"
         >
           4
         </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('5')}
+          onClick={() => handleNumberClick('5')}
           data-testid="button-number-5"
         >
           5
         </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('6')}
+          onClick={() => handleNumberClick('6')}
           data-testid="button-number-6"
         >
           6
         </button>
         <button 
           className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
-          onClick={() => onOperatorClick('-')}
+          onClick={() => handleOperatorClick('-')}
           data-testid="button-subtract"
         >
           −
@@ -142,28 +180,28 @@ export function CalculatorButtons({
         {/* Row 4: 1, 2, 3, + */}
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('1')}
+          onClick={() => handleNumberClick('1')}
           data-testid="button-number-1"
         >
           1
         </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('2')}
+          onClick={() => handleNumberClick('2')}
           data-testid="button-number-2"
         >
           2
         </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('3')}
+          onClick={() => handleNumberClick('3')}
           data-testid="button-number-3"
         >
           3
         </button>
         <button 
           className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
-          onClick={() => onOperatorClick('+')}
+          onClick={() => handleOperatorClick('+')}
           data-testid="button-add"
         >
           +
@@ -172,28 +210,28 @@ export function CalculatorButtons({
         {/* Row 5: History, 0, ., = */}
         <button 
           className="calculator-button history-button rounded-full font-semibold text-sm sm:text-base lg:text-lg text-white flex items-center justify-center"
-          onClick={onHistoryToggle}
+          onClick={handleHistoryToggle}
           data-testid="button-history"
         >
           📝
         </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={() => onNumberClick('0')}
+          onClick={() => handleNumberClick('0')}
           data-testid="button-number-0"
         >
           0
         </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
-          onClick={onDecimalClick}
+          onClick={handleDecimalClick}
           data-testid="button-decimal"
         >
           .
         </button>
         <button 
           className="calculator-button equals-button rounded-full font-bold text-xl sm:text-2xl lg:text-3xl text-white"
-          onClick={onCalculate}
+          onClick={handleCalculate}
           data-testid="button-equals"
         >
           =
