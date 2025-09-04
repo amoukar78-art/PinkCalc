@@ -43,7 +43,7 @@ export function HistoryPanel({
       >
         
         {/* History Header */}
-        <div className="bg-gradient-to-r from-primary to-secondary p-4 sm:p-6 text-primary-foreground">
+        <div className="bg-gradient-to-r from-primary to-secondary pt-12 pb-4 px-4 sm:pt-16 sm:pb-6 sm:px-6 text-primary-foreground">
           <div className="flex items-center justify-between">
             <h3 className="text-lg sm:text-xl font-bold">Calculation History</h3>
             <button 
