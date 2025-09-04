@@ -15,7 +15,7 @@ export function CalculatorDisplay({
     <div className={cn("display-area rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 mb-4", className)}>
       {/* Previous Calculation */}
       <div 
-        className="text-muted-foreground text-sm sm:text-lg md:text-xl text-right mb-1 sm:mb-2" 
+        className="text-muted-foreground text-sm sm:text-lg md:text-xl text-right mb-1 sm:mb-2 overflow-hidden break-all" 
         data-testid="text-previous-calculation"
       >
         {previousCalculation}
@@ -23,8 +23,11 @@ export function CalculatorDisplay({
       
       {/* Current Display */}
       <div 
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-right" 
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-right overflow-hidden break-all min-w-0" 
         data-testid="text-current-value"
+        style={{
+          fontSize: currentValue.length > 12 ? '1.5rem' : currentValue.length > 8 ? '2rem' : undefined
+        }}
       >
         {currentValue}
       </div>
