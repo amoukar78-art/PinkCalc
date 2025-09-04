@@ -113,18 +113,33 @@
   }
 
   .calculator-button {
-    @apply transition-all duration-200 ease-in-out;
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
+    @apply transition-all duration-300 ease-out;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15), 0 2px 8px rgba(219, 39, 119, 0.1);
+    position: relative;
+    overflow: visible;
+  }
+
+  .calculator-button::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 20%;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+    border-radius: 50%;
+    box-shadow: 16px 0 0 inherit;
   }
 
   .calculator-button:hover {
-    @apply -translate-y-0.5;
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+    @apply -translate-y-1 scale-105;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3), 0 4px 15px rgba(219, 39, 119, 0.2);
   }
 
   .calculator-button:active {
-    @apply translate-y-0;
-    box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+    @apply translate-y-0 scale-95;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
+    transition: all 0.1s ease-out;
   }
 
   .number-button {
