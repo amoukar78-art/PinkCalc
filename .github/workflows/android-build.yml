@@ -39,10 +39,6 @@ jobs:
     - name: Sync Capacitor
       run: npx cap sync android
 
-    - name: Generate keystore
-      run: |
-        keytool -genkey -v -keystore android/app/release-key.keystore -keyalg RSA -keysize 2048 -validity 10000 -alias release-key -storepass password -keypass password -dname "CN=Calculator App, OU=Development, O=Calculator, L=City, S=State, C=US"
-
     - name: Build APK
       run: |
         cd android
