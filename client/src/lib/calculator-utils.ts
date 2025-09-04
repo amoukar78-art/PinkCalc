@@ -47,24 +47,73 @@ export function safeEvaluate(expression: string): number {
     // Convert Arabic numerals to English for calculation
     const englishExpression = convertArabicToEnglish(expression);
     
-    // Remove any non-mathematical characters
-    const sanitized = englishExpression.replace(/[^0-9+\-*/.() ]/g, '');
+    // Remove any non-mathematical characters but preserve spaces temporarily
+    let sanitized = englishExpression.replace(/[^0-9+\-*/.() ]/g, '');
     
     // Replace display operators with JavaScript operators
-    const jsExpression = sanitized
+    let jsExpression = sanitized
       .replace(/×/g, '*')
       .replace(/÷/g, '/')
       .replace(/−/g, '-');
     
+    // Validate expression structure
+    if (!jsExpression || jsExpression.trim() === '') {
+      throw new Error('Empty expression');
+    }
+    
+    // Check for invalid patterns
+    const invalidPatterns = [
+      /^\+/, /^\*/, /^\//, // Starts with operator (except minus)
+      /\+$/, /\-$/, /\*$/, /\/$/, // Ends with operator
+      /\+\+/, /\-\-/, /\*\*/, /\/\//, // Double operators
+      /\+\*/, /\+\//, /\-\*/, /\-\//, /\*\+/, /\*\-/, /\/\+/, /\/\-/, // Invalid operator combinations
+      /\(\)/, // Empty parentheses
+      /\d+\(/, /\)\d+/, // Missing operators around parentheses
+    ];
+    
+    for (const pattern of invalidPatterns) {
+      if (pattern.test(jsExpression)) {
+        throw new Error('Invalid expression structure');
+      }
+    }
+    
+    // Handle potential octal number issues by ensuring numbers don't start with 0
+    // (except for decimal numbers like 0.5)
+    jsExpression = jsExpression.replace(/\b0+(\d+)/g, '$1');
+    
+    // Validate parentheses are balanced
+    let openParens = 0;
+    for (const char of jsExpression) {
+      if (char === '(') openParens++;
+      if (char === ')') {
+        openParens--;
+        if (openParens < 0) throw new Error('Unmatched parentheses');
+      }
+    }
+    if (openParens !== 0) throw new Error('Unmatched parentheses');
+    
     // Use Function constructor for safe evaluation (no eval)
     const result = new Function('return ' + jsExpression)();
     
-    if (typeof result !== 'number' || !isFinite(result)) {
-      throw new Error('Invalid calculation');
+    // Check if result is valid
+    if (typeof result !== 'number') {
+      throw new Error('Calculation did not return a number');
+    }
+    
+    if (!isFinite(result)) {
+      throw new Error('Calculation resulted in infinity or invalid number');
+    }
+    
+    // Check for extremely large numbers that might cause display issues
+    if (Math.abs(result) > Number.MAX_SAFE_INTEGER) {
+      throw new Error('Number too large for safe calculation');
     }
     
     return result;
   } catch (error) {
+    // Return more specific error messages for debugging
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error('Calculator evaluation error:', errorMessage, 'Expression:', expression);
     throw new Error('Calculation Error');
   }
 }
