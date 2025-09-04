@@ -7,6 +7,12 @@ const config: CapacitorConfig = {
   server: {
     androidScheme: 'https'
   },
+  plugins: {
+    StatusBar: {
+      style: 'light',
+      backgroundColor: '#F5F0FB',
+    },
+  },
   android: {
     buildOptions: {
       keystorePath: "app/signing.keystore",

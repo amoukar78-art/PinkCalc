@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light theme colors matching the app background -->
+    <color name="colorPrimary">#C855F7</color> <!-- hsl(270, 95%, 75%) -->
+    <color name="colorPrimaryDark">#F5F0FB</color> <!-- hsl(320, 20%, 97%) - background -->
+    <color name="colorAccent">#E879C7</color> <!-- hsl(330, 85%, 70%) -->
+    
+    <!-- Status bar and navigation bar colors -->
+    <color name="statusBarColor">#F5F0FB</color> <!-- Light background -->
+    <color name="navigationBarColor">#F5F0FB</color> <!-- Light background -->
+    <color name="statusBarColorDark">#221119</color> <!-- Dark background -->
+    <color name="navigationBarColorDark">#221119</color> <!-- Dark background -->
+    
+    <!-- Background colors -->
+    <color name="backgroundColor">#F5F0FB</color> <!-- hsl(320, 20%, 97%) -->
+    <color name="backgroundColorDark">#221119</color> <!-- hsl(330, 15%, 8%) -->
+</resources>

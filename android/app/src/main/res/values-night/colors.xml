@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme colors -->
+    <color name="colorPrimary">#C855F7</color> <!-- hsl(270, 95%, 75%) -->
+    <color name="colorPrimaryDark">#221119</color> <!-- hsl(330, 15%, 8%) - dark background -->
+    <color name="colorAccent">#E879C7</color> <!-- hsl(330, 85%, 70%) -->
+    
+    <!-- Status bar and navigation bar colors for dark theme -->
+    <color name="statusBarColor">#221119</color> <!-- Dark background -->
+    <color name="navigationBarColor">#221119</color> <!-- Dark background -->
+</resources>
