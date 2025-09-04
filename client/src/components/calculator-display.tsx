@@ -12,7 +12,7 @@ export function CalculatorDisplay({
   className 
 }: CalculatorDisplayProps) {
   return (
-    <div className={cn("display-area rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6", className)}>
+    <div className={cn("display-area rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 mb-4", className)}>
       {/* Previous Calculation */}
       <div 
         className="text-muted-foreground text-sm sm:text-lg md:text-xl text-right mb-1 sm:mb-2" 

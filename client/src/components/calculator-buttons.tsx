@@ -40,9 +40,9 @@ export function CalculatorButtons({
   ];
 
   return (
-    <div className={cn("space-y-2 sm:space-y-3", className)}>
+    <div className={cn("space-y-2", className)}>
       {/* Button Grid */}
-      <div className="grid grid-cols-4 gap-2 sm:gap-3">
+      <div className="grid grid-cols-4 gap-2">
         
         {/* First Row: Clear, Delete, Percent, Divide */}
         <button 

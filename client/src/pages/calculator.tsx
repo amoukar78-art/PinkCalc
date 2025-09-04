@@ -22,7 +22,7 @@ export default function Calculator() {
   } = useCalculator();
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-2 sm:p-4 lg:p-6 relative">
+    <div className="min-h-screen flex items-start justify-center pt-4 sm:pt-8 md:pt-12 pb-4 px-2 sm:px-4 lg:px-6 relative">
       
       {/* Main Calculator Container */}
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-card/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden fade-in border border-white/20" data-testid="calculator-main" style={{
@@ -31,7 +31,7 @@ export default function Calculator() {
         
 
         {/* Calculator Body */}
-        <div className="p-3 sm:p-4 md:p-6 lg:p-8">
+        <div className="p-4 sm:p-5 md:p-6">
           
           {/* Display Area */}
           <CalculatorDisplay 
@@ -50,7 +50,7 @@ export default function Calculator() {
           />
 
           {/* History Toggle Button */}
-          <div className="flex justify-center mt-4 sm:mt-6">
+          <div className="flex justify-center mt-4">
             <button 
               className="bg-gradient-to-r from-accent to-secondary text-accent-foreground px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2 sm:gap-3 border border-white/20 backdrop-blur-sm text-sm sm:text-base"
               onClick={() => setIsHistoryOpen(true)}
