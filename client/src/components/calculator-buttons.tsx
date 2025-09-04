@@ -160,7 +160,7 @@ export function CalculatorButtons({
           3
         </button>
         <button 
-          className="calculator-button operator-button h-14 rounded-xl font-semibold text-xl text-white row-span-2"
+          className="calculator-button operator-button h-14 rounded-xl font-semibold text-xl text-white"
           onClick={() => onOperatorClick('+')}
           data-testid="button-add"
         >
