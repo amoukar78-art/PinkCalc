@@ -22,10 +22,10 @@ export default function Calculator() {
   } = useCalculator();
 
   return (
-    <div className="min-h-screen flex items-start justify-center pt-4 sm:pt-8 md:pt-12 pb-4 px-2 sm:px-4 lg:px-6 relative">
+    <div className="h-screen flex flex-col justify-center px-2 sm:px-4 lg:px-6 relative">
       
       {/* Main Calculator Container */}
-      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-card/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden fade-in border border-white/20" data-testid="calculator-main" style={{
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-card/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden fade-in border border-white/20 mx-auto" data-testid="calculator-main" style={{
         boxShadow: '0 25px 50px rgba(139, 92, 246, 0.15), 0 15px 35px rgba(219, 39, 119, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1)'
       }}>
         
