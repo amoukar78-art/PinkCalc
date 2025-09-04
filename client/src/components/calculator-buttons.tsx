@@ -77,38 +77,97 @@ export function CalculatorButtons({
           ÷
         </button>
 
-        {/* Number buttons and operators */}
-        {numberButtons.map((num, index) => {
-          const isLastInRow = (index + 1) % 3 === 0;
-          const operatorIndex = Math.floor(index / 3);
-          
-          return (
-            <div key={num.value} className="contents">
-              <button 
-                className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
-                onClick={() => onNumberClick(num.value)}
-                data-testid={`button-number-${num.value}`}
-              >
-                {num.display}
-              </button>
-              
-              {isLastInRow && operatorIndex < 3 && (
-                <button 
-                  className={cn(
-                    "calculator-button operator-button h-14 rounded-xl font-semibold text-xl text-white",
-                    operatorIndex === 2 && "row-span-2"
-                  )}
-                  onClick={() => onOperatorClick(operators[operatorIndex + 1]?.value)}
-                  data-testid={`button-${operators[operatorIndex + 1]?.value.replace('/', 'divide').replace('*', 'multiply').replace('-', 'subtract').replace('+', 'add')}`}
-                >
-                  {operators[operatorIndex + 1]?.symbol}
-                </button>
-              )}
-            </div>
-          );
-        })}
+        {/* Row 2: 7, 8, 9, × */}
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('7')}
+          data-testid="button-number-7"
+        >
+          7
+        </button>
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('8')}
+          data-testid="button-number-8"
+        >
+          8
+        </button>
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('9')}
+          data-testid="button-number-9"
+        >
+          9
+        </button>
+        <button 
+          className="calculator-button operator-button h-14 rounded-xl font-semibold text-xl text-white"
+          onClick={() => onOperatorClick('*')}
+          data-testid="button-multiply"
+        >
+          ×
+        </button>
 
-        {/* Zero and Decimal */}
+        {/* Row 3: 4, 5, 6, - */}
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('4')}
+          data-testid="button-number-4"
+        >
+          4
+        </button>
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('5')}
+          data-testid="button-number-5"
+        >
+          5
+        </button>
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('6')}
+          data-testid="button-number-6"
+        >
+          6
+        </button>
+        <button 
+          className="calculator-button operator-button h-14 rounded-xl font-semibold text-xl text-white"
+          onClick={() => onOperatorClick('-')}
+          data-testid="button-subtract"
+        >
+          −
+        </button>
+
+        {/* Row 4: 1, 2, 3, + */}
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('1')}
+          data-testid="button-number-1"
+        >
+          1
+        </button>
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('2')}
+          data-testid="button-number-2"
+        >
+          2
+        </button>
+        <button 
+          className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
+          onClick={() => onNumberClick('3')}
+          data-testid="button-number-3"
+        >
+          3
+        </button>
+        <button 
+          className="calculator-button operator-button h-14 rounded-xl font-semibold text-xl text-white row-span-2"
+          onClick={() => onOperatorClick('+')}
+          data-testid="button-add"
+        >
+          +
+        </button>
+
+        {/* Row 5: 0 (span 2), ., = */}
         <button 
           className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground col-span-2"
           onClick={() => onNumberClick('0')}
@@ -116,7 +175,6 @@ export function CalculatorButtons({
         >
           0
         </button>
-        
         <button 
           className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
           onClick={onDecimalClick}
@@ -124,16 +182,14 @@ export function CalculatorButtons({
         >
           .
         </button>
+        <button 
+          className="calculator-button equals-button h-14 rounded-xl font-bold text-xl text-white"
+          onClick={onCalculate}
+          data-testid="button-equals"
+        >
+          =
+        </button>
       </div>
-      
-      {/* Equals Button (Full Width) */}
-      <button 
-        className="calculator-button equals-button h-14 rounded-xl font-bold text-xl w-full text-white"
-        onClick={onCalculate}
-        data-testid="button-equals"
-      >
-        =
-      </button>
     </div>
   );
 }
