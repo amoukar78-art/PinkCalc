@@ -1,0 +1,71 @@
+name: Build Android App
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build web assets
+      run: vite build
+
+    - name: Sync Capacitor
+      run: npx cap sync android
+
+    - name: Generate keystore
+      run: |
+        keytool -genkey -v -keystore android/app/release-key.keystore -keyalg RSA -keysize 2048 -validity 10000 -alias release-key -storepass password -keypass password -dname "CN=Calculator App, OU=Development, O=Calculator, L=City, S=State, C=US"
+
+    - name: Build APK
+      run: |
+        cd android
+        ./gradlew assembleRelease
+        
+    - name: Build AAB
+      run: |
+        cd android
+        ./gradlew bundleRelease
+
+    - name: Sign APK
+      run: |
+        jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore android/app/release-key.keystore -storepass password android/app/build/outputs/apk/release/app-release-unsigned.apk release-key
+        zipalign -v 4 android/app/build/outputs/apk/release/app-release-unsigned.apk android/app/build/outputs/apk/release/calculator-app.apk
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: calculator-app-apk
+        path: android/app/build/outputs/apk/release/calculator-app.apk
+
+    - name: Upload AAB
+      uses: actions/upload-artifact@v4
+      with:
+        name: calculator-app-aab
+        path: android/app/build/outputs/bundle/release/app-release.aab
