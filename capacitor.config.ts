@@ -5,10 +5,6 @@ const config: CapacitorConfig = {
   appName: 'Calculator Cute',
   webDir: 'dist/public',
   server: {
-    // For development with localhost
-    url: 'http://localhost:5000',
-    cleartext: true,
-    // For production build
     androidScheme: 'https'
   },
   plugins: {
@@ -24,9 +20,7 @@ const config: CapacitorConfig = {
       keystoreAlias: "my-key-alias",
       keystoreAliasPassword: "aPbD8TqaKeHd",
       releaseType: "APK"
-    },
-    // Allow localhost access
-    allowMixedContent: true
+    }
   }
 };
 
