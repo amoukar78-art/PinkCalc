@@ -46,7 +46,7 @@ export function CalculatorButtons({
         
         {/* First Row: Clear, Delete, Percent, Divide */}
         <button 
-          className="calculator-button clear-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg lg:text-xl text-white"
+          className="calculator-button clear-button rounded-full font-semibold text-base sm:text-lg lg:text-xl text-white"
           onClick={onClear}
           data-testid="button-clear"
         >
@@ -54,7 +54,7 @@ export function CalculatorButtons({
         </button>
         
         <button 
-          className="calculator-button operator-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
+          className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
           onClick={onDelete}
           data-testid="button-delete"
         >
@@ -62,7 +62,7 @@ export function CalculatorButtons({
         </button>
         
         <button 
-          className="calculator-button operator-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
+          className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
           onClick={() => onOperatorClick('%')}
           data-testid="button-percent"
         >
@@ -70,7 +70,7 @@ export function CalculatorButtons({
         </button>
         
         <button 
-          className="calculator-button operator-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
+          className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
           onClick={() => onOperatorClick('/')}
           data-testid="button-divide"
         >
@@ -79,28 +79,28 @@ export function CalculatorButtons({
 
         {/* Row 2: 7, 8, 9, × */}
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('7')}
           data-testid="button-number-7"
         >
           7
         </button>
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('8')}
           data-testid="button-number-8"
         >
           8
         </button>
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('9')}
           data-testid="button-number-9"
         >
           9
         </button>
         <button 
-          className="calculator-button operator-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
+          className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
           onClick={() => onOperatorClick('*')}
           data-testid="button-multiply"
         >
@@ -109,28 +109,28 @@ export function CalculatorButtons({
 
         {/* Row 3: 4, 5, 6, - */}
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('4')}
           data-testid="button-number-4"
         >
           4
         </button>
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('5')}
           data-testid="button-number-5"
         >
           5
         </button>
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('6')}
           data-testid="button-number-6"
         >
           6
         </button>
         <button 
-          className="calculator-button operator-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
+          className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
           onClick={() => onOperatorClick('-')}
           data-testid="button-subtract"
         >
@@ -139,51 +139,52 @@ export function CalculatorButtons({
 
         {/* Row 4: 1, 2, 3, + */}
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('1')}
           data-testid="button-number-1"
         >
           1
         </button>
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('2')}
           data-testid="button-number-2"
         >
           2
         </button>
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('3')}
           data-testid="button-number-3"
         >
           3
         </button>
         <button 
-          className="calculator-button operator-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
+          className="calculator-button operator-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-white"
           onClick={() => onOperatorClick('+')}
           data-testid="button-add"
         >
           +
         </button>
 
-        {/* Row 5: 0 (span 2), ., = */}
+        {/* Row 5: Empty, 0, ., = */}
+        <div></div>
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground col-span-2"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('0')}
           data-testid="button-number-0"
         >
           0
         </button>
         <button 
-          className="calculator-button number-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
+          className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={onDecimalClick}
           data-testid="button-decimal"
         >
           .
         </button>
         <button 
-          className="calculator-button equals-button h-14 sm:h-16 lg:h-18 rounded-lg sm:rounded-xl font-bold text-xl sm:text-2xl lg:text-3xl text-white"
+          className="calculator-button equals-button rounded-full font-bold text-xl sm:text-2xl lg:text-3xl text-white"
           onClick={onCalculate}
           data-testid="button-equals"
         >

@@ -115,8 +115,26 @@
   .calculator-button {
     @apply transition-all duration-300 ease-out;
     box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15), 0 2px 8px rgba(219, 39, 119, 0.1);
-    width: 100% !important;
-    aspect-ratio: 1;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  @media (min-width: 640px) {
+    .calculator-button {
+      width: 70px !important;
+      height: 70px !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .calculator-button {
+      width: 80px !important;
+      height: 80px !important;
+    }
   }
 
   .calculator-button:hover {
