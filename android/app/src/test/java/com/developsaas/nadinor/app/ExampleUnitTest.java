@@ -1,4 +1,4 @@
-package com.getcapacitor.myapp;
+package com.developsaas.nadinor.app;
 
 import static org.junit.Assert.*;
 
