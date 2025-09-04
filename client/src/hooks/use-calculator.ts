@@ -9,7 +9,7 @@ export interface CalculationHistory {
 }
 
 export function useCalculator() {
-  const [display, setDisplay] = useState('٠');
+  const [display, setDisplay] = useState('0');
   const [previousCalculation, setPreviousCalculation] = useState('');
   const [expression, setExpression] = useState('');
   const [history, setHistory] = useState<CalculationHistory[]>([]);
@@ -55,15 +55,15 @@ export function useCalculator() {
 
   const inputNumber = useCallback((num: string) => {
     if (waitingForNewNumber) {
-      setDisplay(convertEnglishToArabic(num));
+      setDisplay(num);
       setExpression(num);
       setWaitingForNewNumber(false);
     } else {
-      if (display === '٠') {
-        setDisplay(convertEnglishToArabic(num));
+      if (display === '0') {
+        setDisplay(num);
         setExpression(num);
       } else {
-        setDisplay(prev => prev + convertEnglishToArabic(num));
+        setDisplay(prev => prev + num);
         setExpression(prev => prev + num);
       }
     }
@@ -84,7 +84,7 @@ export function useCalculator() {
 
   const inputDecimal = useCallback(() => {
     if (waitingForNewNumber) {
-      setDisplay('٠.');
+      setDisplay('0.');
       setExpression('0.');
       setWaitingForNewNumber(false);
     } else {
@@ -109,14 +109,14 @@ export function useCalculator() {
       setExpression(result.toString());
       setWaitingForNewNumber(true);
     } catch (error) {
-      setDisplay('خطأ');
+      setDisplay('Error');
       setExpression('');
       setWaitingForNewNumber(true);
     }
   }, [expression, display, addToHistory]);
 
   const clear = useCallback(() => {
-    setDisplay('٠');
+    setDisplay('0');
     setPreviousCalculation('');
     setExpression('');
     setWaitingForNewNumber(false);
@@ -128,8 +128,8 @@ export function useCalculator() {
       return;
     }
 
-    if (display.length === 1 || display === 'خطأ') {
-      setDisplay('٠');
+    if (display.length === 1 || display === 'Error') {
+      setDisplay('0');
       setExpression('');
     } else {
       setDisplay(prev => prev.slice(0, -1));

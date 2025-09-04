@@ -45,7 +45,7 @@ export function HistoryPanel({
         {/* History Header */}
         <div className="bg-gradient-to-r from-primary to-secondary p-6 text-primary-foreground">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-bold">سجل العمليات</h3>
+            <h3 className="text-xl font-bold">Calculation History</h3>
             <button 
               className="text-primary-foreground hover:text-primary-foreground/80 text-xl transition-colors"
               onClick={onClose}
@@ -54,7 +54,7 @@ export function HistoryPanel({
               <X className="w-6 h-6" />
             </button>
           </div>
-          <p className="text-primary-foreground/80 text-sm mt-2">جميع العمليات الحسابية</p>
+          <p className="text-primary-foreground/80 text-sm mt-2">All your calculations</p>
         </div>
 
         {/* History Content */}
@@ -67,7 +67,7 @@ export function HistoryPanel({
                 data-testid="button-clear-history"
               >
                 <Trash2 className="w-4 h-4" />
-                مسح السجل
+                Clear History
               </button>
             </div>
           )}
@@ -77,8 +77,8 @@ export function HistoryPanel({
               /* Empty State */
               <div className="text-center py-12 text-muted-foreground" data-testid="empty-state-history">
                 <History className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                <p className="text-lg">لا توجد عمليات حسابية بعد</p>
-                <p className="text-sm">ابدأ بإجراء بعض العمليات</p>
+                <p className="text-lg">No calculations yet</p>
+                <p className="text-sm">Start performing some operations</p>
               </div>
             ) : (
               /* History Items */

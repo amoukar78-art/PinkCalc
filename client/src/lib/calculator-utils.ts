@@ -1,4 +1,4 @@
-// Arabic to English numeral conversion
+// Arabic to English numeral conversion (keeping for backward compatibility)
 export const arabicToEnglish: { [key: string]: string } = {
   '٠': '0',
   '١': '1',
@@ -12,7 +12,7 @@ export const arabicToEnglish: { [key: string]: string } = {
   '٩': '9',
 };
 
-// English to Arabic numeral conversion
+// English to Arabic numeral conversion (keeping for backward compatibility)
 export const englishToArabic: { [key: string]: string } = {
   '0': '٠',
   '1': '١',
@@ -31,15 +31,14 @@ export function convertArabicToEnglish(text: string): string {
   return text.replace(/[٠-٩]/g, (match) => arabicToEnglish[match] || match);
 }
 
-// Convert English numerals to Arabic for display
+// Convert English numerals to Arabic for display (now returns English for UI)
 export function convertEnglishToArabic(text: string): string {
-  return text.replace(/[0-9]/g, (match) => englishToArabic[match] || match);
+  return text; // Return as-is for English display
 }
 
-// Format number for display (add commas, convert to Arabic)
+// Format number for display (add commas, keep in English)
 export function formatNumber(num: number): string {
-  const formatted = num.toLocaleString('en-US');
-  return convertEnglishToArabic(formatted);
+  return num.toLocaleString('en-US');
 }
 
 // Safely evaluate mathematical expression
@@ -66,11 +65,11 @@ export function safeEvaluate(expression: string): number {
     
     return result;
   } catch (error) {
-    throw new Error('خطأ في الحساب');
+    throw new Error('Calculation Error');
   }
 }
 
-// Format time in Arabic
+// Format time in English
 export function formatTimeArabic(date: Date): string {
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
@@ -78,11 +77,11 @@ export function formatTimeArabic(date: Date): string {
   const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-  if (diffMins < 1) return 'الآن';
-  if (diffMins < 60) return `منذ ${convertEnglishToArabic(diffMins.toString())} دقيقة`;
-  if (diffHours < 24) return `منذ ${convertEnglishToArabic(diffHours.toString())} ساعة`;
-  if (diffDays === 1) return 'أمس';
-  if (diffDays < 7) return `منذ ${convertEnglishToArabic(diffDays.toString())} أيام`;
+  if (diffMins < 1) return 'Now';
+  if (diffMins < 60) return `${diffMins} minutes ago`;
+  if (diffHours < 24) return `${diffHours} hours ago`;
+  if (diffDays === 1) return 'Yesterday';
+  if (diffDays < 7) return `${diffDays} days ago`;
   
-  return date.toLocaleDateString('ar-SA');
+  return date.toLocaleDateString('en-US');
 }

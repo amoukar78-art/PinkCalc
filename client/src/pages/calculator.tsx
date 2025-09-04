@@ -30,10 +30,10 @@ export default function Calculator() {
         {/* Header */}
         <div className="bg-gradient-to-r from-primary to-secondary p-6 text-center">
           <h1 className="text-2xl font-bold text-primary-foreground mb-2" data-testid="text-calculator-title">
-            آلة حاسبة أنثوية
+            Feminine Calculator
           </h1>
           <p className="text-primary-foreground/80 text-sm" data-testid="text-calculator-subtitle">
-            حاسبة عصرية وأنيقة
+            Modern & Elegant Calculator
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function Calculator() {
               data-testid="button-toggle-history"
             >
               <History className="w-4 h-4" />
-              عرض السجل
+              View History
             </button>
           </div>
 

@@ -21,15 +21,15 @@ export function CalculatorButtons({
   className
 }: CalculatorButtonsProps) {
   const numberButtons = [
-    { arabic: '٧', english: '7' },
-    { arabic: '٨', english: '8' },
-    { arabic: '٩', english: '9' },
-    { arabic: '٤', english: '4' },
-    { arabic: '٥', english: '5' },
-    { arabic: '٦', english: '6' },
-    { arabic: '١', english: '1' },
-    { arabic: '٢', english: '2' },
-    { arabic: '٣', english: '3' },
+    { display: '7', value: '7' },
+    { display: '8', value: '8' },
+    { display: '9', value: '9' },
+    { display: '4', value: '4' },
+    { display: '5', value: '5' },
+    { display: '6', value: '6' },
+    { display: '1', value: '1' },
+    { display: '2', value: '2' },
+    { display: '3', value: '3' },
   ];
 
   const operators = [
@@ -50,7 +50,7 @@ export function CalculatorButtons({
           onClick={onClear}
           data-testid="button-clear"
         >
-          مسح
+          Clear
         </button>
         
         <button 
@@ -66,7 +66,7 @@ export function CalculatorButtons({
           onClick={() => onOperatorClick('%')}
           data-testid="button-percent"
         >
-          ٪
+          %
         </button>
         
         <button 
@@ -83,13 +83,13 @@ export function CalculatorButtons({
           const operatorIndex = Math.floor(index / 3);
           
           return (
-            <div key={num.english} className="contents">
+            <div key={num.value} className="contents">
               <button 
                 className="calculator-button number-button h-14 rounded-xl font-semibold text-xl text-foreground"
-                onClick={() => onNumberClick(num.english)}
-                data-testid={`button-number-${num.english}`}
+                onClick={() => onNumberClick(num.value)}
+                data-testid={`button-number-${num.value}`}
               >
-                {num.arabic}
+                {num.display}
               </button>
               
               {isLastInRow && operatorIndex < 3 && (
@@ -114,7 +114,7 @@ export function CalculatorButtons({
           onClick={() => onNumberClick('0')}
           data-testid="button-number-0"
         >
-          ٠
+          0
         </button>
         
         <button 
