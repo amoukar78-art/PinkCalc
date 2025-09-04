@@ -19,7 +19,7 @@ const config: CapacitorConfig = {
       keystorePassword: "aPbD8TqaKeHd",
       keystoreAlias: "my-key-alias",
       keystoreAliasPassword: "aPbD8TqaKeHd",
-      releaseType: "APK"
+      releaseType: "AAB"
     }
   }
 };
