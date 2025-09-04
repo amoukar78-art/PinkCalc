@@ -8,6 +8,7 @@ interface CalculatorButtonsProps {
   onCalculate: () => void;
   onClear: () => void;
   onDelete: () => void;
+  onHistoryToggle: () => void;
   className?: string;
 }
 
@@ -18,6 +19,7 @@ export function CalculatorButtons({
   onCalculate,
   onClear,
   onDelete,
+  onHistoryToggle,
   className
 }: CalculatorButtonsProps) {
   const numberButtons = [
@@ -167,8 +169,14 @@ export function CalculatorButtons({
           +
         </button>
 
-        {/* Row 5: Empty, 0, ., = */}
-        <div></div>
+        {/* Row 5: History, 0, ., = */}
+        <button 
+          className="calculator-button history-button rounded-full font-semibold text-sm sm:text-base lg:text-lg text-white flex items-center justify-center"
+          onClick={onHistoryToggle}
+          data-testid="button-history"
+        >
+          📝
+        </button>
         <button 
           className="calculator-button number-button rounded-full font-semibold text-xl sm:text-2xl lg:text-3xl text-foreground"
           onClick={() => onNumberClick('0')}

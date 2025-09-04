@@ -47,23 +47,9 @@ export default function Calculator() {
             onCalculate={calculate}
             onClear={clear}
             onDelete={deleteLast}
+            onHistoryToggle={() => setIsHistoryOpen(true)}
           />
 
-          {/* History Toggle Button */}
-          <div className="flex justify-center mt-4">
-            <button 
-              className="bg-gradient-to-r from-accent to-secondary text-accent-foreground px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2 sm:gap-3 border border-white/20 backdrop-blur-sm text-sm sm:text-base"
-              onClick={() => setIsHistoryOpen(true)}
-              data-testid="button-toggle-history"
-              style={{
-                boxShadow: '0 8px 25px rgba(139, 92, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
-              }}
-            >
-              <History className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="hidden xs:inline sm:inline">View History</span>
-              <span className="xs:hidden sm:hidden">History</span>
-            </button>
-          </div>
 
         </div>
       </div>

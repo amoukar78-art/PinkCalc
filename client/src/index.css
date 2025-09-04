@@ -170,6 +170,10 @@
     background: linear-gradient(135deg, hsl(0, 85%, 75%) 0%, hsl(330, 85%, 70%) 100%);
   }
 
+  .history-button {
+    background: linear-gradient(135deg, hsl(270, 95%, 75%) 0%, hsl(330, 85%, 70%) 100%);
+  }
+
   .display-area {
     background: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(320, 40%, 98%) 100%);
     border: 2px solid hsl(320, 30%, 90%);
