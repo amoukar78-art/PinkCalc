@@ -111,7 +111,18 @@ export function useCalculator() {
     if (!expression.trim()) return;
 
     try {
-      const result = safeEvaluate(expression);
+      // Clean up expression by removing trailing operators
+      let cleanExpression = expression.trim();
+      
+      // Remove any trailing operators (+, -, *, /)
+      while (cleanExpression.length > 0 && ['+', '-', '*', '/'].includes(cleanExpression.slice(-1))) {
+        cleanExpression = cleanExpression.slice(0, -1);
+      }
+      
+      // If nothing left after cleanup, don't calculate
+      if (!cleanExpression.trim()) return;
+      
+      const result = safeEvaluate(cleanExpression);
       const resultStr = formatNumber(result);
       
       addToHistory(display, resultStr);

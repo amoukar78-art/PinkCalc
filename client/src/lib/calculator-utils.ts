@@ -64,7 +64,6 @@ export function safeEvaluate(expression: string): number {
     // Check for invalid patterns
     const invalidPatterns = [
       /^\+/, /^\*/, /^\//, // Starts with operator (except minus)
-      /\+$/, /\-$/, /\*$/, /\/$/, // Ends with operator
       /\+\+/, /\-\-/, /\*\*/, /\/\//, // Double operators
       /\+\*/, /\+\//, /\-\*/, /\-\//, /\*\+/, /\*\-/, /\/\+/, /\/\-/, // Invalid operator combinations
       /\(\)/, // Empty parentheses
