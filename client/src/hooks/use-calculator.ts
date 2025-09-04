@@ -77,8 +77,19 @@ export function useCalculator() {
     const arabicOperator = operator === '*' ? '×' : operator === '/' ? '÷' : operator === '-' ? '−' : operator;
     
     if (expression && !waitingForNewNumber) {
-      setExpression(prev => prev + operator);
-      setDisplay(prev => prev + arabicOperator);
+      // Check if the last character is already an operator
+      const lastChar = expression.slice(-1);
+      const isLastCharOperator = ['+', '-', '*', '/'].includes(lastChar);
+      
+      if (isLastCharOperator) {
+        // Replace the last operator with the new one
+        setExpression(prev => prev.slice(0, -1) + operator);
+        setDisplay(prev => prev.slice(0, -1) + arabicOperator);
+      } else {
+        // Add the new operator
+        setExpression(prev => prev + operator);
+        setDisplay(prev => prev + arabicOperator);
+      }
     }
   }, [expression, waitingForNewNumber]);
 
