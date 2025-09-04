@@ -31,7 +31,7 @@ export default function Calculator() {
         
 
         {/* Calculator Body */}
-        <div className="p-4 sm:p-5 md:p-6">
+        <div className="p-5 sm:p-6 md:p-7">
           
           {/* Display Area */}
           <CalculatorDisplay 

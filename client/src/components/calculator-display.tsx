@@ -23,7 +23,7 @@ export function CalculatorDisplay({
       
       {/* Current Display */}
       <div 
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-right" 
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-right" 
         data-testid="text-current-value"
       >
         {currentValue}
